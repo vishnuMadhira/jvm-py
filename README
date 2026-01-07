@@ -1,0 +1,34 @@
+# JVM-py
+
+A minimal JVM class file parser written in Python, built from first principles by decoding raw `.class` file bytes according to the JVM specification.
+
+## Current Status
+
+**v0.1** — Parses JVM class file header:
+
+- Magic number (`0xCAFEBABE`)
+- Minor version
+- Major version
+
+Output is verified against `javap -verbose`.
+
+## Motivation
+
+This project is a learning-oriented JVM model to deeply understand:
+
+- Binary file parsing
+- Endianness and bitwise operations
+- JVM class file structure
+- Stack-based virtual machine concepts
+
+## Requirements
+
+- Python 3.11+
+- Java JDK (for `javac` and `javap`)
+
+## Usage
+
+```bash
+javac Hello.java
+python read_class.py
+```
