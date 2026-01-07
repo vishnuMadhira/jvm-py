@@ -28,6 +28,11 @@ This project is a learning-oriented JVM model to deeply understand:
 
 ## Usage
 
+```bash
+javac Hello.java
+python read_class.py
+```
+
 
 ## Roadmap
 
@@ -35,8 +40,3 @@ This project is a learning-oriented JVM model to deeply understand:
 - v0.3: Parse methods and fields
 - v0.4: JVM stack frame model
 - v0.5: Bytecode interpreter loop
-
-```bash
-javac Hello.java
-python read_class.py
-```
