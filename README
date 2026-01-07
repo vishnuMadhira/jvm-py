@@ -28,6 +28,14 @@ This project is a learning-oriented JVM model to deeply understand:
 
 ## Usage
 
+
+## Roadmap
+
+- v0.2: Parse constant pool entries
+- v0.3: Parse methods and fields
+- v0.4: JVM stack frame model
+- v0.5: Bytecode interpreter loop
+
 ```bash
 javac Hello.java
 python read_class.py
