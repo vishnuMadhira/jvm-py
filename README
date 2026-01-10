@@ -12,6 +12,19 @@ A minimal JVM class file parser written in Python, built from first principles b
 
 Output is verified against `javap -verbose`.
 
+**v0.2** — Parses constant pool entries including Class, Utf8, Methodref, NameAndType.
+Outputs verified against `javap -verbose`.
+
+**v0.3** — Constant pool resolution.
+
+The project now:
+
+- Parses JVM constant pool entries
+- Resolves symbolic references (Class, NameAndType, Methodref)
+- Produces human-readable JVM signatures such as:
+  java/lang/Object.<init>()V
+  Output is verified against `javap -verbose`.
+
 ## Motivation
 
 This project is a learning-oriented JVM model to deeply understand:
@@ -33,10 +46,8 @@ javac Hello.java
 python read_class.py
 ```
 
-
 ## Roadmap
 
-- v0.2: Parse constant pool entries
-- v0.3: Parse methods and fields
-- v0.4: JVM stack frame model
-- v0.5: Bytecode interpreter loop
+- v0.4: Stack frame and operand stack model
+- v0.5: Bytecode execution loop (iconst, iload, iadd, istore)
+- v0.6: Method invocation and return handling

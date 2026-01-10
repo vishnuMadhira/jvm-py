@@ -31,7 +31,7 @@ def read_constant_pool(reader: ByteReader,cp_count):
             bytes_data = reader.data[reader.pos:reader.pos+length]
             reader.pos += length
             value = bytes_data.decode("utf-8"); # bytes to String in UTF-8
-            cp[i] = ("utf-8",value)
+            cp[i] = ("Utf-8",value)
         
         elif tag == TAG_CLASS:
             name_index = reader.read_u2()
