@@ -1,43 +1,63 @@
 # JVM-py
 
-A minimal JVM class file parser written in Python, built from first principles by decoding raw `.class` file bytes according to the JVM specification.
+A minimal JVM class file parser and execution model written in Python, built from first principles by decoding raw `.class` file bytes according to the JVM specification.
+
+This project focuses on understanding how the JVM works internally rather than providing a production JVM.
+
+---
 
 ## Current Status
 
-**v0.1** — Parses JVM class file header:
+### v0.1 — Class File Header
 
 - Magic number (`0xCAFEBABE`)
 - Minor version
 - Major version
 
-Output is verified against `javap -verbose`.
+### v0.2 — Constant Pool Parsing
 
-**v0.2** — Parses constant pool entries including Class, Utf8, Methodref, NameAndType.
-Outputs verified against `javap -verbose`.
+- Parses constant pool entries
+- Supports Class, Utf8, Methodref, NameAndType
+- Output verified against `javap -verbose`
 
-**v0.3** — Constant pool resolution.
+### v0.3 — Constant Pool Resolution
 
-The project now:
-
-- Parses JVM constant pool entries
 - Resolves symbolic references (Class, NameAndType, Methodref)
-- Produces human-readable JVM signatures such as:
+- Produces human-readable JVM symbols such as:
+  ```
   java/lang/Object.<init>()V
-  Output is verified against `javap -verbose`.
+  ```
+
+### v0.4 — Execution Model
+
+- Stack frame implementation
+- Operand stack support
+- Local variables array
+
+- Output verified against `javap -verbose`
+
+---
 
 ## Motivation
 
-This project is a learning-oriented JVM model to deeply understand:
+This project is built to deeply understand JVM internals, including:
 
 - Binary file parsing
 - Endianness and bitwise operations
 - JVM class file structure
-- Stack-based virtual machine concepts
+- Symbol resolution and linking
+- Stack-based virtual machine design
+
+The goal is learning and correctness, not performance or completeness.
+
+---
 
 ## Requirements
 
 - Python 3.11+
 - Java JDK (for `javac` and `javap`)
+
+---
 
 ## Usage
 
@@ -46,8 +66,23 @@ javac Hello.java
 python read_class.py
 ```
 
+---
+
 ## Roadmap
 
-- v0.4: Stack frame and operand stack model
 - v0.5: Bytecode execution loop (iconst, iload, iadd, istore)
 - v0.6: Method invocation and return handling
+
+---
+
+## Notes
+
+This project follows the official JVM specification closely and validates output using `javap -verbose` to ensure correctness.
+
+The implementation is intentionally simple and educational.
+
+---
+
+## License
+
+MIT License
